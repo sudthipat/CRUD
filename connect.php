@@ -2,12 +2,8 @@
 
 $con = new mysqli('localhost', 'root', '', 'crud_db');
 
-if ($con) {
-    echo "connection success";
-} else {
+if(!$con) {
     die(mysqli_error($con));
+    // echo"connection success";
 }
-
-
-
 ?>

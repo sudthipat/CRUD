@@ -1,7 +1,7 @@
 <?php
 include "connect.php";
 
-if (isset($_POST['submit'])) {
+if(isset($_POST['submit'])) {
     $name = $_POST['name'];
     $email = $_POST['email'];
     $mobile = $_POST['mobile'];
@@ -13,8 +13,9 @@ if (isset($_POST['submit'])) {
     VALUES ('$name','$email','$mobile','$password')";
 
     $result = mysqli_query($con, $sql);
-    if ($result) {
-        echo "Insert succesfull";
+    if($result) {
+        // echo"Insert succesfull";
+        header('location:display.php');
     } else {
         die(mysqli_error($con));
     }
@@ -36,31 +37,33 @@ if (isset($_POST['submit'])) {
 
 <body>
     <div class="container my-5">
-        <form methhod="post">
-            <div class="form-group mb-3">
-                <label>name</label>
-                <input type="text" class="form-control" placeholder="input name" name="name">
+        <form method="post">
+            <div class="container mb-3">
+                <div class="form-group mb-3">
+                    <label>Name</label>
+                    <input type="text" class="form-control" placeholder="input Name" name="name">
+                </div>
+                <div class="form-group mb-3">
+                    <label>Email</label>
+                    <input type="email" class="form-control" placeholder="input Email" name="email">
+                </div>
+                <div class="form-group mb-3">
+                    <label>Mobile</label>
+                    <input type="tel" class="form-control" placeholder="input Mobile" name="mobile">
+                </div>
+                <div class="form-group mb-3">
+                    <label>Password</label>
+                    <input type="password" class="form-control" placeholder="input Password" name="password">
+                </div>
+                <button type="submit" class="btn btn-primary" name="submit">Submit</button>
             </div>
-            <div class="form-group mb-3">
-                <label>Email</label>
-                <input type="Email" class="form-control" placeholder="input Email" name="email">
-            </div>
-            <div class="form-group mb-3">
-                <label>Mobile</label>
-                <input type="tel" class="form-control" placeholder="input Mobile" name="mobile">
-            </div>
-            <div class="form-group mb-3">
-                <label>Password</label>
-                <input type="password" class="form-control" placeholder="input Password" name="password">
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-    </div>
-    </form>
+        </form>
     </div>
 
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
-        </script>
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
